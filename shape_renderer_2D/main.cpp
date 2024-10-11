@@ -64,13 +64,13 @@ int main(int argc, char const *argv[])
     // Create a Vertex Buffer Object (VBO) and Vertex Array Object (VAO)
     GLuint VBO, VAO;
     glGenVertexArrays(1, &VAO); // Generate a VAO
-    glGenBuffers(1, &VBO);      // Generate a VBO
+    glGenBuffers(1, &VBO);      // Generate a VBO -> a memory buffer on the GPU
 
     // Bind the VAO (storing the vertex attribute configuration)
-    glBindVertexArray(VAO); 
+    glBindVertexArray(VAO);
 
     // Bind the VBO and upload the vertices data
-    glBindBuffer(GL_ARRAY_BUFFER, VBO); // Bind the VBO to the GL_ARRAY_BUFFER target (any operations on the GL_ARRAY_BUFFER target will affect the currently bound VBO)
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);                                        // Bind the VBO to the GL_ARRAY_BUFFER target (any operations on the GL_ARRAY_BUFFER target will affect the currently bound VBO)
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW); // Pass the vertices data to the GPU. GL_STATIC_DRAW: the data will not be changed
 
     // Configure the vertex attributes
